@@ -1,0 +1,179 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * MechanicBook design system — dark navy garage theme.
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-star: var(--star);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.16 0.032 264);
+  --foreground: oklch(0.97 0.005 250);
+  --surface: oklch(0.21 0.033 264);
+  --surface-foreground: oklch(0.97 0.005 250);
+  --card: oklch(0.21 0.033 264);
+  --card-foreground: oklch(0.97 0.005 250);
+  --popover: oklch(0.2 0.033 264);
+  --popover-foreground: oklch(0.97 0.005 250);
+  --primary: oklch(0.58 0.202 259);
+  --primary-foreground: oklch(0.99 0.002 250);
+  --primary-glow: oklch(0.68 0.16 250);
+  --secondary: oklch(0.26 0.035 264);
+  --secondary-foreground: oklch(0.95 0.006 250);
+  --muted: oklch(0.25 0.03 264);
+  --muted-foreground: oklch(0.7 0.025 258);
+  --accent: oklch(0.3 0.05 260);
+  --accent-foreground: oklch(0.97 0.005 250);
+  --success: oklch(0.72 0.17 156);
+  --success-foreground: oklch(0.16 0.03 264);
+  --warning: oklch(0.8 0.16 82);
+  --warning-foreground: oklch(0.18 0.03 264);
+  --star: oklch(0.83 0.16 85);
+  --destructive: oklch(0.63 0.21 25);
+  --destructive-foreground: oklch(0.99 0.002 250);
+  --border: oklch(0.32 0.035 262 / 60%);
+  --input: oklch(0.3 0.035 262 / 80%);
+  --ring: oklch(0.58 0.202 259);
+  --chart-1: oklch(0.58 0.202 259);
+  --chart-2: oklch(0.72 0.17 156);
+  --chart-3: oklch(0.8 0.16 82);
+  --chart-4: oklch(0.68 0.16 250);
+  --chart-5: oklch(0.63 0.21 25);
+  --sidebar: oklch(0.19 0.032 264);
+  --sidebar-foreground: oklch(0.97 0.005 250);
+  --sidebar-primary: oklch(0.58 0.202 259);
+  --sidebar-primary-foreground: oklch(0.99 0.002 250);
+  --sidebar-accent: oklch(0.26 0.035 264);
+  --sidebar-accent-foreground: oklch(0.97 0.005 250);
+  --sidebar-border: oklch(0.32 0.035 262 / 60%);
+  --sidebar-ring: oklch(0.58 0.202 259);
+
+  --gradient-hero: radial-gradient(
+      1000px 600px at 15% -10%,
+      color-mix(in oklab, var(--primary) 22%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      800px 500px at 90% 10%,
+      color-mix(in oklab, var(--primary-glow) 14%, transparent),
+      transparent 70%
+    );
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+  --gradient-surface: linear-gradient(
+    160deg,
+    color-mix(in oklab, var(--surface) 92%, var(--primary)),
+    var(--background)
+  );
+  --shadow-glow: 0 12px 40px -12px color-mix(in oklab, var(--primary) 55%, transparent);
+  --shadow-card: 0 18px 50px -24px oklch(0 0 0 / 70%);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 40%, transparent);
+  }
+}
+
+@utility hero-surface {
+  background-image: var(--gradient-hero);
+}
+
+@utility glass-card {
+  background: color-mix(in oklab, var(--surface) 78%, transparent);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-card);
+}
+
+@utility text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glow-ring {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility section-py {
+  padding-block: 4.5rem;
+}
